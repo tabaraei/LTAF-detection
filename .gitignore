@@ -1,0 +1,7 @@
+# Ignore the followings folders when pushing through Github
+/packages/
+/data/
+/html/
+
+# Ignore the following file types
+*.asv

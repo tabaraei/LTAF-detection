@@ -5,6 +5,11 @@ This project implements an atrial fibrillation (AF) detector based on the paper 
 ## Dataset
 The algorithm was developed and tested on the Long Term Atrial Fibrillation (LTAF) database [^2][^3], consisting of 84 ECG recordings from patients with paroxysmal or persistent AF, most with a 24-hour duration. The entire database comprises nearly 9 million beats, with 59% occurring during AF.
 
+> [!IMPORTANT]
+> In order to be able to run the code, make sure to:
+> 1) Download the WFDB package from [here](https://physionet.org/physiotools/matlab/wfdb-app-matlab/wfdb-app-toolbox-0-10-0.zip), unzip the folder, and put the contents of `mcode` folder into the project directory as `<LTAF-detection>/packages/wfdb`.
+> 2) Download the LTAF dataset from [here](https://physionet.org/static/published-projects/ltafdb/long-term-af-database-1.0.0.zip) and put all the contents in `<LTAF-detection>/data/LTAF`.
+
 ## Algorithm
 ![ECG 1](https://github.com/tabaraei/LTAF-detection/blob/master/plots/ecg1.png)
 ![ECG 2](https://github.com/tabaraei/LTAF-detection/blob/master/plots/ecg2.png)
@@ -26,9 +31,6 @@ The algorithm was developed and tested on the Long Term Atrial Fibrillation (LTA
 
 > [!TIP]
 > Helpful advice for doing things better or more easily.
-
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
 
 > [!WARNING]
 > Urgent info that needs immediate user attention to avoid problems.

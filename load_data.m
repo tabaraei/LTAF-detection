@@ -70,13 +70,20 @@ function [LTAF] = load_data()
         [signal, fs] = rdsamp(file_name);
         [indices, annots,~,~,~, annots_aux] = rdann(file_name, annot_type);
         N_channels = size(signal, 2);
+
+        % remove out-of-bound indices which exist in some files, e.g. "30"
+        condition = indices <= length(signal) & indices > 0;
+        indices = indices(condition);
+        annots = annots(condition);
+        annots_aux = annots_aux(condition);
    
         % Display the unique annotations found in the file
         if display_annot_count
+            disp('Unique Annotations:');
             unique_annots = unique(annots_aux(~cellfun('isempty', annots_aux)));
             for i=1:length(unique_annots)
                 count = sum(strcmp(annots_aux, unique_annots{i}));
-                disp(['Annotation "', unique_annots{i}, '" Count: ', num2str(count)]);
+                disp(['     Annotation "', unique_annots{i}, '" Count: ', num2str(count)]);
             end
         end
     
@@ -98,12 +105,8 @@ function [LTAF] = load_data()
     function [ECG_AF_Groundtruth, RR_AF_Groundtruth, ECG_time, AF_time, N_AF_Episodes] ...
             = gannots(signal, indices, annots_aux, N_intervals, fs)
 
-        % create the begin-to-end intervals of annotations for RR series
-        RR_begin_episodes = find(~cellfun('isempty', annots_aux) & ...
-            ~strcmp(annots_aux, 'PSE') & ...
-            ~strcmp(annots_aux, 'MISSB') & ...
-            ~strcmp(annots_aux, ' Aux') & ...
-            ~strcmp(annots_aux, 'M'));
+        % create the begin-to-end intervals of episode-level annotations for RR series
+        RR_begin_episodes = find(cellfun(@(x) ischar(x) && startsWith(x, '('), annots_aux));
         RR_end_episodes = [RR_begin_episodes(2:end)-1; N_intervals];
         
         % create the begin-to-end intervals of annotations for ECG signal

@@ -67,13 +67,13 @@ function [plt] = plots()
         legends = cell(1, length(unique_annots));
         annotationMapping = containers.Map(...
             {'(N', '(SVTA', '(VT', '(AFIB', '(B', '(T', '(IVR', '(AB', ...
-            '(SBR', ' Aux', 'MISSB', 'PSE', 'M'}, ...
+            '(SBR', ' Aux', 'MISSB', 'PSE', 'M', 'MB'}, ...
             {'Normal sinus rhythm', 'Supraventricular tachyarrhythmia', ...
             'Ventricular tachycardia', 'Atrial fibrillation', ...
             'Ventricular bigeminy', 'Ventricular trigeminy', ...
             'Idioventricular rhythm', 'Atrial bigeminy', ...
             'Sinus bradycardia', 'Auxiliary', 'Missed beat', ...
-            'Pause', 'M'});
+            'Pause', 'M', 'MB'});
 
         hold on;
         plot(x, 'Color', color_primary);
@@ -109,7 +109,12 @@ function [plt] = plots()
             plot(AF_mask_indices, AF_mask(AF_mask_indices), 'Color', color_secondary)
             hold off;
             ylabel('Amplitude (mV)');
-            legend('ECG Signal', 'Atrial Fibrilation Episodes');
+            if sum(ECG_AF_Groundtruth) > 0
+                legend('ECG Signal', 'Atrial Fibrilation Episodes');
+            else
+                legend('ECG Signal');
+            end
+            
             title(['Channel ', num2str(channel)]);
         end
         sgtitle('Complete ECG Signal');

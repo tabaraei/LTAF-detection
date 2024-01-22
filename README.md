@@ -7,7 +7,7 @@ The algorithm was developed and tested on the Long Term Atrial Fibrillation (LTA
 
 > [!IMPORTANT]
 > In order to be able to run the code, make sure to:
-> 1) Download the WFDB package from [here](https://physionet.org/physiotools/matlab/wfdb-app-matlab/wfdb-app-toolbox-0-10-0.zip), unzip the folder, and put the contents of `mcode` folder into the project directory as `<LTAF-detection>/packages/wfdb`.
+> 1) Download the WFDB package from [here](https://physionet.org/physiotools/matlab/wfdb-app-matlab/wfdb-app-toolbox-0-10-0.zip), unzip the folder, and put the contents of `mcode` folder into the project directory as `<LTAF-detection>/packages/WFDB`.
 > 2) Download the LTAF dataset from [here](https://physionet.org/static/published-projects/ltafdb/long-term-af-database-1.0.0.zip) and put all the contents in `<LTAF-detection>/data/LTAF`.
 
 ## Algorithm

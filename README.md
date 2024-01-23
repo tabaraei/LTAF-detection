@@ -40,6 +40,15 @@ Below, you can see the effectiveness of the proposed algorithm which was run on 
 ![Results3](https://github.com/tabaraei/LTAF-detection/blob/master/plots/results3.png)
 ![Results4](https://github.com/tabaraei/LTAF-detection/blob/master/plots/results4.png)
 
+## Overall Results:
+Below, the overall performance of the proposed algorithm on all 84 ECG signals of LTAF database is summarized. It is evident that in general it effectively detects the AF episodes, while some minor errors can be seen in some cases. Note that the performance is dependent on the length of AF episodes as well> In some cases, there were too short AF epsisodes to discover, which resulted in poor sensitivity/specificity performance.
+
+![Evaluations1](https://github.com/tabaraei/LTAF-detection/blob/master/plots/evaluations1.png)
+![Evaluations2](https://github.com/tabaraei/LTAF-detection/blob/master/plots/evaluations2.png)
+![Evaluations3](https://github.com/tabaraei/LTAF-detection/blob/master/plots/evaluations3.png)
+![Evaluations4](https://github.com/tabaraei/LTAF-detection/blob/master/plots/evaluations4.png)
+
+
 [^1]: A. Petrėnas, V. Marozas, L. Sörnmo, Low-complexity detection of atrial fibrillation in continuous long-term monitoring, Computers in Biology and Medicine, 65, 184-191, 2015
 [^2]: S. Petrutiu, A.V. Sahakian, S. Swiryn, Abrupt changes in fibrillatory wave characteristics at the termination of paroxysmal atrial fibrillation in humans, Europace 9 (2007) 466–470
 [^3]: A.L. Goldberger, L.A. Amaral, L. Glass, J.M. Hausdorff, P.C. Ivanov, R.G. Mark, J.E. Mietus, G.B. Moody, C.K. Peng, H.E. Stanley, PhysioBank, PhysioToolkit, and PhysioNet: components of a new research resource for complex physiologic signals, Circulation 101 (2000) E215–E220
